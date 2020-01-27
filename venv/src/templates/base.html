@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AICE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/css/main.css' %}"> 
+  <link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body id="main">
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+      <a class="navbar-brand" href="#"><img src="{% static 'img/LGO_12.png' %}" alt="logo" class="img-responsive" width="35px" height="35px"/></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li><a href=" ">HOME</a></li>
+         <li><a href="blogs">BLOGS</a></li>
+          <li><a href="teams">TEAM</a></li>
+          <li><a href="contactus">CONTACT</a></li>
+          <li><a href="aboutus">ABOUT</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">DOWNLOAD <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">TEMPLATES</a></li>
+              <li><a href="#">IMAGES</a></li>
+              <li><a href="#">SOFTWARE</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<main role="main" class ="container">
+  <div class="row">
+    <div class="col-md-8">
+      <br><br>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{message.tags}}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {%endif%}  
+      <div class="content-section">
+        {% block content%}
+        <p>Place item here</p>
+        {% endblock %}
+        </div>
+    </div>
+  </div>
+</main>
+    
+ 
+
+
+  
+</body>
+</html>

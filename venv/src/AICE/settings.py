@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'contactus',
     'Home',
     'login',
+    'configration',
     'usersprofile',
+    'registration',
     'signup.apps.SignupConfig',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AICE.wsgi.application'
+#ASGI_APPLICATION = "AICE.routing.application"
 
 
 # Database
@@ -125,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_DIRS = [

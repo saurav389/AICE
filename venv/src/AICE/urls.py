@@ -25,15 +25,20 @@ from signup.views import register
 from Blogs.views import blogs_view
 from contactus.views import contact_view
 from about.views import about_view
-
+from configration.views import configure, AddSiteView,rateview
+from registration.views import registration_view
 
 urlpatterns = [
     path('',home_view,name='Home'),
     path('profile/',include('usersprofile.urls')),
     path('login/',include('login.urls')),
     path('signup/',include('signup.urls')),
+    path('register/',include('registration.urls')),
     path('logout/',views.LogoutView.as_view(template_name = 'logout.html'),name = 'logout'),
     path('blogs/',blogs_view),
+    path('rate/',rateview),
+    path('config/',configure),
+    path('addsite/',AddSiteView),
     path('contactus/',contact_view),
     path('about/',about_view),
     path('admin/', admin.site.urls),
